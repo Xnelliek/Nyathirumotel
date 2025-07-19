@@ -1,0 +1,37 @@
+
+.nav-tabs > li > a {color:#232323 !important;font-size:18px !important;font-weight:300 !important;border:none !important;text-transform:uppercase;border-radius:0;}
+ .nav-tabs {border-bottom:none !important}
+.nav-tabs > li > a:hover {background:transparent !important;}
+ .nav-tabs > li.active > a, .gallery-tab .nav > li > a:focus {font-weight:600 !important;border-bottom:solid 4px #02086e !important;background:transparent !important;border-radius:none;}
+.tab-content > .tab-pane {}
+
+
+.scrtabs-tab-container * {box-sizing: border-box;}
+
+/* line 17, jquery.scrolling-tabs.scss */
+.scrtabs-tab-container { height: 42px;}
+/* line 19, jquery.scrolling-tabs.scss */
+.scrtabs-tab-container .tab-content {clear: left;}
+
+/* line 24, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-fixed-container {float: left;height: 55px;overflow: hidden; width: 100%;}
+
+/* line 31, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-movable-container {position: relative;}
+/* line 33, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-movable-container .tab-content {display: none;}
+
+/* line 38, jquery.scrolling-tabs.scss */
+.scrtabs-tab-scroll-arrow {border:none;border-top: none;color: #428bca;cursor: pointer;float: left;font-size: 12px;height: 42px;margin-bottom: -1px;padding-left: 2px;padding-top: 19px;width: 20px;}
+/* line 50, jquery.scrolling-tabs.scss */
+.tab-left-icon {background:url(../images/tab-left-arrow.png) no-repeat;width:8px;height:12px;display:block}
+.tab-right-icon{background:url(../images/tab-right-arrow.png) no-repeat;width:8px;height:12px;display:block}
+.scrtabs-tab-scroll-arrow:hover {background-color:transparent;opacity:0.8}
+
+/* line 55, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-fixed-container ul.nav-tabs {height: 41px;}
+/* line 57, jquery.scrolling-tabs.scss */
+.scrtabs-tabs-fixed-container ul.nav-tabs > li {white-space: nowrap;}
+
+/* line 63, jquery.scrolling-tabs.scss */
+.scrtabs-tab-content-outside-movable-container .nav-tabs {display: none;}

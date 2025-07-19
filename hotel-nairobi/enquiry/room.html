@@ -1,0 +1,317 @@
+<div class="modal-header">
+        											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        											<img src="../images/logo2.png" class="img-responsive" alt="Logo">
+       												 <h4 class="modal-title" id="myModalLabel">Room Booking Enquiry</h4>
+      											</div>
+<div class="modal-body">
+                                              
+                                            
+				<form class="form-horizontal" name="roombook" method="post" id="room_booking">
+                								<div class="row">
+													<div class="col-sm-6">
+														<div class="row">
+															
+														<div class="col-sm-12 m-bottom">
+															<input type="text" class="form-control" id="name" placeholder="Name" name="name" maxlength=50 autocomplete="off">	
+														</div>
+														<div class="col-sm-12 m-bottom">
+															<input type="email" class="form-control" id="email" placeholder="Email" name="email" maxlength=50 autocomplete="off">
+														</div>
+															
+																<div class="col-sm-12 m-bottom">
+                                                            	<input type="tel" class="form-control" id="phone" placeholder="Phone No." name="phone_no" maxlength=12 onKeyUp="checkNumber(this);" autocomplete="off">
+   	    													
+															</div>
+															<div class="col-sm-12 m-bottom">
+																<div class="select-option">
+                                                        	<select name="room" id="rroom" class="form-control">
+																<option value="">Room Type</option>
+																<option value="Deluxe Rooms">Deluxe Rooms</option>
+																<option value="Superior Rooms">Superior Rooms</option>
+																<option value="Royale Jade Suite">Royale Jade Suite</option>
+																<option value="Executive Suite">Executive Suite</option>
+																</select>
+                                                        
+															
+														</div>
+															</div>
+															
+														</div>
+													</div>
+													<div class="col-sm-6">
+														<div class="row">
+															<div class="col-sm-12 m-bottom">
+																<input type="text" name="checkin" onfocus="blur();" id="rcheckin" placeholder="Arrival Date" class="form-control date-icon" autocomplete="off"> 
+															</div>
+															<div class="col-sm-12 m-bottom">
+																<input type="text" name="checkout" onfocus="blur();" id="rcheckout" placeholder="Departure Date" class="form-control date-icon" autocomplete="off">
+															</div>
+															<div class="col-sm-12 m-bottom">
+																<select name="adults" id="radults" class="form-control">
+																<option value="">Adults </option>
+                                                                <option value="1">1</option>
+																 <option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+															</select>
+															</div>
+															<div class="col-sm-12 m-bottom">
+																<select name="child" id="rchild" class="form-control">
+															<option value="">Children</option>
+															<option value="0">0</option>
+															 <option value="1">1</option>
+																 <option value="2">2</option>
+																<option value="3">3</option>
+																<option value="4">4</option>
+														</select>
+															</div>
+															
+														</div>
+													</div>
+													
+													
+												</div>
+					      
+                                               <div class="row m-bottom">
+                                                <div class="col-sm-12">
+        												<textarea placeholder="Enquiry" name="comment" id="comment" class="form-control" type="text"></textarea>
+            												
+    												</div>
+                                                   </div>
+        									 <div class="row m-bottom">
+   											 <div class="col-sm-12">
+    											 <div class="btn-center"> <button type="buttton" class="btn btn-default" onClick="return cate_validate();">Booking Enquiry</button></div>
+<span class="error" style="color:red;display:block;text-align:center;padding:5px;clear:both"></span>
+<div id="processing1"></div>
+    										  </div>
+  										</div>
+								</form>
+</div>	
+
+<style type="text/css">
+#processing1 { background:url("../images/loading1.gif") no-repeat !important; height:40px;margin-left: 49%;display:none;margin-top:0%; }
+</style>
+
+<script >
+
+function cate_validate()
+{
+var name    =$("#name").val().trim();
+var email   =$("#email").val().trim();
+var phone_no=$("#phone").val().trim();
+var room   =$("#rroom").val().trim();
+var wdate   =$("#rcheckin").val().trim();
+var ddate   =$("#rcheckout").val().trim();
+var adult   =$("#radults").val().trim();
+var children=$("#rchild").val().trim();
+var comment    =$("#comment").val().trim();
+
+
+
+
+if(name=='')
+{
+
+$(".error").html("Please Enter Your Name");
+$("#name").focus();
+return false;
+
+}
+if(wdate=='')
+{
+
+$(".error").html("Please Select Arrival Date");
+$("#rcheckin").focus();
+return false;
+
+}
+if(email=='')
+
+{
+$(".error").html("Please Enter Email ID");
+$("#email").focus();
+return false;
+ }
+var txtemailpattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+	if(txtemailpattern.test(email)==false)
+	{	
+
+                $(".error").html("Please Enter Valid Email ID");
+                $("#email").focus();
+		 return false;
+	}
+
+if(ddate=='')
+{
+
+$(".error").html("Please Select Check Out Date");
+$("#rcheckout").focus();
+return false;
+
+}
+
+
+ if(phone_no=="" )
+	{
+        $(".error").html("Please Enter Phone Number.");
+	$("#phone").focus();
+return false;
+	} 
+if(phone_no.length != 10 && phone_no.length != 12 )  
+        {  
+        $(".error").html("Please Enter Valid Phone Number.");
+	$("#phone").focus();
+	
+       return false;
+        } 
+
+if(adult=='')
+{
+
+$(".error").html("Please Select Adult");
+$("#radults").focus();
+return false;
+
+}
+if(room=='')
+{
+
+$(".error").html("Please Select Room Name");
+$("#rroom").focus();
+return false;
+
+}
+
+
+
+
+
+
+
+
+if(children=='')
+{
+
+$(".error").html("Please Select Children");
+$("#rchild").focus();
+return false;
+
+}
+if(comment=='')
+{
+
+$(".error").html("Please Enter Enquiry");
+$("#comment").focus();
+return false;
+
+}
+
+else
+{
+
+
+$("#processing1").show();
+
+$(".error").html("");
+
+
+
+
+$.ajax({
+type: "POST",
+			url: "https://www.panarihotels.com/hotel-nairobi/enquiry/room_process.php",
+			cache: false,
+			data:$('#room_booking').serializeArray(),
+			}).done(function( msg ) {
+                                       
+              if(msg==1)
+                {
+                    $(".error").html("Your Enquiry has been Submitted Successfully");
+                   
+                   $('#room_booking')[0].reset();
+                   $("#processing1").hide();
+
+                 }
+              else  if(msg==6)
+                {
+
+                 $(".error").html("Please Enter All values");
+                 $("#processing1").hide();
+                }
+                else  if(msg==6)
+                {
+
+                 $(".error").html("Please Enter All values");
+                 $("#processing1").hide();
+                }
+             
+                else  if(msg==3)
+                {
+
+                 $(".error").html("Arrival Or Departure Date should be equal to today's date or greater than");
+                 $("#processing1").hide();
+                }
+                  else  if(msg==20)
+                {
+
+                 $(".error").html("Departure Date should be equal to Arrival date or greater than");
+                 $("#processing1").hide();
+                }
+                  else  if(msg==4)
+                {
+
+                 $(".error").html("Mobile No. length should be 10 or 12");
+                 $("#processing1").hide();
+                }
+                  else  if(msg==5)
+                {
+
+                 $(".error").html("Please enter a valid email");
+                 $("#processing1").hide();
+                }
+                else
+                {
+
+               alert(msg);
+               $("#processing1").hide();
+
+                }
+
+
+
+});
+
+
+}
+return false;
+}
+
+
+
+function trim(str)
+{
+	return str.replace(/^\s+|\s+$/g,'');
+}
+
+function checkNumber(textBox)
+{
+	while (textBox.value.length > 0 && isNaN(textBox.value)) {
+		textBox.value = textBox.value.substring(0, textBox.value.length - 1)
+	}
+
+	textBox.value = trim(textBox.value);
+
+}
+
+
+ $(function() {
+
+$( "#rcheckin").datepicker({dateFormat: 'dd-mm-yy',minDate: 0});
+$( "#rcheckout").datepicker({dateFormat: 'dd-mm-yy',minDate: 0});
+
+
+
+});
+
+</script>
+

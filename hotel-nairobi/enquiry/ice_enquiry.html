@@ -1,0 +1,312 @@
+
+<div class="modal-header">
+        											<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        											<img src="../404.html" class="img-responsive" alt="Logo">
+       												 <h4 class="modal-title" id="myModalLabel">Solar Ice Rink Enquiry</h4>
+      											</div>
+<div class="modal-body">
+                                              
+                                            
+     											<form class="form-horizontal" name="roombook" method="post" id="ice_form">
+                                                	 <div class="row m-bottom">
+   														<div class="col-sm-6">
+      															<input type="text" class="form-control" id="name" placeholder="Name" name="name" maxlength=50 autocomplete="off">
+    													</div>
+ 												 	
+   														<div class="col-sm-6">
+      															<input type="email" class="form-control" id="email" placeholder="Email" name="email" maxlength=50 autocomplete="off">
+    													</div>
+ 												 	</div>
+  												 <div class="row m-bottom">
+   													<div class="col-sm-6">
+      													<input type="tel" class="form-control" id="phone" placeholder="Phone No."  name="phone_no" maxlength=12 onKeyUp="checkNumber(this);" autocomplete="off">
+    												</div>
+  												
+   													<div class="col-sm-6">
+        												<input type="text" name="checkin" onfocus="blur();" id="rcheckin" placeholder="Date" class="form-control date-icon"> 
+      													
+    												</div>
+        										</div>
+                                                <div class="row m-bottom">
+  														
+  												
+   													<div class="col-sm-6">
+      													<div class="select-option">
+															<select name="adults" id="radults" class="form-control">
+																<option value="">Adults </option>
+																<option value="0-10">0-10</option>
+																<option value="10-20">20-30</option>
+																<option value="20-30">20-30</option>
+																<option value="30-40">30-40</option>
+                                                                <option value="40-50">40-50</option>
+                                                                <option value="50-60">50-60</option>
+                                                                <option value="60-70">60-70</option>
+                                                                <option value="70-80">70-80</option>
+                                                                <option value="80-90">80-90</option>
+                                                                <option value="90-100">90-100</option>
+															</select>
+														</div>
+    												</div>
+                                                    
+                                                    <div class="col-sm-6">
+<select name="child" id="rchild" class="form-control">
+																<option value="">Children</option>
+															<option value="0-10">0-10</option>
+																<option value="10-20">10-20</option>
+																<option value="20-30">20-30</option>
+																<option value="30-40">30-40</option>
+                                                                <option value="40-50">40-50</option>
+                                                                <option value="50-60">50-60</option>
+                                                                <option value="60-70">60-70</option>
+                                                                <option value="70-80">70-80</option>
+                                                                <option value="80-90">80-90</option>
+                                                                <option value="90-100">90-100</option>	
+														</select>
+    												</div>
+  												</div>
+                                                
+    											 <div class="row m-bottom">
+   													
+        										
+                                                <div class="col-sm-3">
+        	     										<select  name="time" id="time" class="form-control"><option value="Time">Time</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="1:00">1:00</option><option value="1:30">1:30</option><option value="2:00">2:00</option><option value="2:30">2:30</option><option value="3:00">3:00</option><option value="3:30">3:30</option><option value="4:00">4:00</option><option value="4:30">4:30</option><option value="5:00">5:00</option><option value="5:30">5:30</option><option value="6:00">6:00</option><option value="6:30">6:30</option><option value="7:00">7:00</option><option value="7:30">7:30</option><option value="8:00">8:00</option><option value="8:30">8:30</option><option value="9:00">9:00</option><option value="9:30">9:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option></select>
+    												</div>
+                                                <div class="col-sm-3">
+      													<select class="form-control" id="am" name="am">
+            												<option value="AM">AM</option>
+            												<option value="PM">PM</option>
+            											</select>
+    												</div>
+                                                    <div class="col-sm-6">
+        	
+      													<!--<textarea type="text" class="form-control" id="comment" name="comment" placeholder="Comment"  /></textarea>-->
+            												
+    												</div>
+                                                </div>
+        									 <div class="row m-bottom">
+   											 <div class="col-sm-12">
+    											 <div class="btn-center"> <button type="button" class="btn btn-default" onclick="ice_validate();">Submit</button></div>
+<span class="error" style="color:red;display:block;text-align:center;padding:5px;clear:both"></span>
+<div id="processing1"></div>
+    										  </div>
+  										</div>
+									</form>
+      </div>
+<style type="text/css">
+#processing1 { background:url("../404.html") no-repeat !important; height:40px;margin-left: 49%;display:none;margin-top:0%; }
+</style>
+<script type="text/javascript">
+function trim(str)
+{
+	return str.replace(/^\s+|\s+$/g,'');
+}
+
+function checkNumber(textBox)
+{
+	while (textBox.value.length > 0 && isNaN(textBox.value)) {
+		textBox.value = textBox.value.substring(0, textBox.value.length - 1)
+	}
+
+	textBox.value = trim(textBox.value);
+
+}
+
+
+</script>
+
+
+<script type="text/javascript">
+function ice_validate()
+{
+var name    =$("#name").val().trim();
+var email   =$("#email").val().trim();
+var phone_no=$("#phone").val().trim();
+var wdate   =$("#rcheckin").val().trim();
+var adult   =$("#radults").val().trim();
+var children=$("#rchild").val().trim();
+var time    =$("#time").val().trim();
+var tformat =$("#am").val().trim();
+//var comment =$("#comment-room").val().trim();
+
+
+if(name=='')
+{
+
+$(".error").html("Please Enter Your Name");
+$("#name").focus();
+return false;
+
+}
+
+if(email=='')
+
+{
+$(".error").html("Please Enter Email ID");
+$("#email").focus();
+return false;
+ }
+var txtemailpattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;  
+	if(txtemailpattern.test(email)==false)
+	{	
+
+                $(".error").html("Please Enter Valid Email ID");
+                $("#email").focus();
+		 return false;
+	}
+
+ if(phone_no=="" )
+	{
+        $(".error").html("Please Enter Phone Number.");
+	$("#phone").focus();
+return false;
+	} 
+if(phone_no.length != 10 && phone_no.length != 12 )  
+        {  
+        $(".error").html("Please Enter Valid Phone Number.");
+	$("#phone").focus();
+	
+       return false;
+        } 
+
+
+if(wdate=='')
+{
+
+$(".error").html("Please Select Date");
+$("#rcheckin").focus();
+return false;
+
+}
+
+if(adult=='')
+{
+
+$(".error").html("Please Select Adult");
+$("#radults").focus();
+return false;
+
+}
+if(children=='')
+{
+
+$(".error").html("Please Select Children");
+$("#rchild").focus();
+return false;
+
+}
+
+if(time=='')
+{
+
+$(".error").html("Please Select Time");
+$("#time").focus();
+return false;
+
+}
+var timeformat = /^(([0-1]?[0-9])|([2][0-3])):([0-5]?[0-9])(:([0-5]?[0-9]))?$/i;  
+	if(timeformat.test(time)==false)
+	{	
+
+                $(".error").html("Please Enter Valid Time , Time format should be 10:00");
+                $("#time").focus();
+		 return false;
+	}
+if(tformat=='')
+{
+
+$(".error").html("Please Select Time Format");
+$("#am").focus();
+return false;
+
+}
+
+
+
+else
+{
+
+
+
+
+$(".error").html("");
+$("#processing1").show();
+
+
+
+$.ajax({
+type: "POST",
+			url: "enquiry/ice_process.php",
+			cache: false,
+			data: $("#ice_form").serializeArray(),
+			}).done(function( msg ) {
+                                       
+              if(msg==1)
+                {
+                    $(".error").html("Your Enquiry has been Submitted Successfully");
+                 $('#ice_form')[0].reset();
+                 $("#processing1").hide();
+
+
+                 }
+              else  if(msg==6)
+                {
+
+                 $(".error").html("Please Enter All values");
+                 $("#processing1").hide();
+                }
+                else  if(msg==6)
+                {
+
+                 $(".error").html("Please Enter All values");
+                 $("#processing1").hide();
+                }
+             
+                else  if(msg==3)
+                {
+
+                 $(".error").html("Date should be equal to today's date or greater than");
+                 $("#processing1").hide();
+                }
+                  else  if(msg==4)
+                {
+
+                 $(".error").html("Mobile No. length should be 10 or 12");
+                 $("#processing1").hide();
+                }
+                  else  if(msg==5)
+                {
+
+                 $(".error").html("Please enter a valid email");
+                 $("#processing1").hide();
+                }
+                else
+                {
+
+               console.log(msg);
+               $(".error").html("Your Enquiry has been Submitted Successfully");
+                 $('#ice_form')[0].reset();
+                 $("#processing1").hide();
+
+                }
+
+
+
+});
+
+
+}
+return false;
+}
+$(function() {
+
+$( "#rcheckin").datepicker({dateFormat: 'dd-mm-yy',minDate: 0});
+
+
+
+
+});
+
+
+</script>
+
+
